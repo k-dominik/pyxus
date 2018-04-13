@@ -97,7 +97,7 @@ class DataUploadUtils(object):
                 raw_json = final_json
             instance = Instance.create_new(schema_data.organization, schema_data.domain, schema_data.name, schema_data.version, raw_json)
             if hashcode_field not in fully_qualified_json:
-                current_hashcode = hashlib.md5(json.dumps(fully_qualified_json)).hexdigest()
+                current_hashcode = hashlib.md5(json.dumps(fully_qualified_json).encode('utf-8')).hexdigest()
                 fully_qualified_json[hashcode_field] = current_hashcode
                 instance.data[hashcode_field] = current_hashcode
             else:

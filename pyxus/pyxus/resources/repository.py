@@ -138,7 +138,7 @@ class Repository(object):
             subpath=subpath,
             field_path=field_path,
             deprecated="deprecated={}".format(deprecated) if deprecated is not None else '',
-            value=u"\"{}\"".format(value) if isinstance(value, (str, unicode)) else value
+            value=u"\"{}\"".format(value) if isinstance(value, (str)) else value
         )
         if resolved:
             path += "&fields=all"
